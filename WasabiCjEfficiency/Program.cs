@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace WasabiCjEfficiency
 {
@@ -6,7 +7,7 @@ namespace WasabiCjEfficiency
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            File.ReadAllLines("CoinJoinsMain.txt");
         }
     }
 }
