@@ -35,7 +35,7 @@ namespace WasabiCjEfficiency
                     Console.WriteLine(day);
                 }
 
-                await File.WriteAllLinesAsync("DailyStat.txt", days.Select(x => x.ToString()));
+                await File.WriteAllLinesAsync("DailyStats.txt", days.Select(x => x.ToString()));
             }
 
             Console.WriteLine();
