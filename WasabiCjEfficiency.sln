@@ -3,12 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasabiCjEfficiency", "WasabiCjEfficiency\WasabiCjEfficiency.csproj", "{53139D74-78D6-4625-ADBA-A35CB22EDF1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WasabiCjEfficiency", "WasabiCjEfficiency\WasabiCjEfficiency.csproj", "{53139D74-78D6-4625-ADBA-A35CB22EDF1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasabiCjEfficiency.Tests", "WasabiCjEfficiency.Tests\WasabiCjEfficiency.Tests.csproj", "{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WasabiCjEfficiency.Tests", "WasabiCjEfficiency.Tests\WasabiCjEfficiency.Tests.csproj", "{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC245593-9A69-4C83-B749-82073C20F5D2}"
 	ProjectSection(SolutionItems) = preProject
+		DailyStats.txt = DailyStats.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
