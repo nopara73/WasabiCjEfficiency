@@ -1,3 +1,5 @@
+`dotnet run -- --rpcuser=user --rpcpassword=password`
+
 This repository is looking for answers on 2 questions:
 
 1. How much non-mixed bitcoins are entering Wasabi mixes?
