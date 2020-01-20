@@ -2,6 +2,7 @@
 using NBitcoin.RPC;
 using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using WasabiCjEfficiency.Helpers;
@@ -31,8 +32,10 @@ namespace WasabiCjEfficiency
 
                 foreach (var day in days)
                 {
-                    day.Display();
+                    Console.WriteLine(day);
                 }
+
+                await File.WriteAllLinesAsync("DailyStat.txt", days.Select(x => x.ToString()));
             }
 
             Console.WriteLine();
