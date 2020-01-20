@@ -18,7 +18,7 @@ namespace WasabiCjEfficiency
 
         public override string ToString()
         {
-            return $"{BlockTimeDay.Year}-{BlockTimeDay.Month}-{BlockTimeDay.Day},\tFresh BTC: {(int)NonMixedInputAmount.ToDecimal(MoneyUnit.BTC)} BTC";
+            return $"{BlockTimeDay.Year}-{BlockTimeDay.Month}-{BlockTimeDay.Day},\tFresh bitcoins: {(int)NonMixedInputAmount.ToDecimal(MoneyUnit.BTC)}";
         }
         internal void AddNonMixedInputAmount(Money value)
         {

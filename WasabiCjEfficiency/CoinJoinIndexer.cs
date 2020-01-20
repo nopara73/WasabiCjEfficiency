@@ -52,6 +52,7 @@ namespace WasabiCjEfficiency
                     if (IsCoinJoin(inputHash)) continue;
 
                     var inputTxi = await Client.GetRawTransactionInfoWithCacheAsync(inputHash);
+
                     day.AddNonMixedInputAmount(inputTxi.Transaction.Outputs[input.N].Value);
                 }
 
