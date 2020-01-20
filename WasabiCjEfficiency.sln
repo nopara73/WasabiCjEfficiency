@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasabiCjEfficiency", "WasabiCjEfficiency\WasabiCjEfficiency.csproj", "{53139D74-78D6-4625-ADBA-A35CB22EDF1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasabiCjEfficiency.Tests", "WasabiCjEfficiency.Tests\WasabiCjEfficiency.Tests.csproj", "{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC245593-9A69-4C83-B749-82073C20F5D2}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53139D74-78D6-4625-ADBA-A35CB22EDF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53139D74-78D6-4625-ADBA-A35CB22EDF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53139D74-78D6-4625-ADBA-A35CB22EDF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53139D74-78D6-4625-ADBA-A35CB22EDF1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1751B9-293E-47F9-8D8C-8062CDC8F6C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CD894C0-A341-4F6C-80D7-E5C51880EFB5}
+	EndGlobalSection
+EndGlobal
