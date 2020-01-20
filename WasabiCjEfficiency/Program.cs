@@ -3,13 +3,14 @@ using NBitcoin.RPC;
 using System;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using WasabiCjEfficiency.Helpers;
 
 namespace WasabiCjEfficiency
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Logger.InitializeDefaults();
 
@@ -25,6 +26,13 @@ namespace WasabiCjEfficiency
 
             using (BenchmarkLogger.Measure(operationName: "Parsing The Blockchain"))
             {
+                var cjIndexer = new CoinJoinIndexer(client);
+                var days = await cjIndexer.GetDailyStatsAsync();
+
+                foreach (var day in days)
+                {
+                    day.Display();
+                }
             }
 
             Console.WriteLine();
