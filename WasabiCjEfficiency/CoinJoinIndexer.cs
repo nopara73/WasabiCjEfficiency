@@ -18,7 +18,7 @@ namespace WasabiCjEfficiency
         public CoinJoinIndexer(RPCClient client)
         {
             Client = client;
-            coinJoinHashes = File.ReadAllLines("CoinJoinsMain.txt").Select(x => new uint256(x)).ToArray();
+            coinJoinHashes = File.ReadAllLines("CoinJoinsMain.txt").Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => new uint256(x)).ToArray();
         }
 
         private decimal PercentageDone { get; set; } = 0;
@@ -55,8 +55,9 @@ namespace WasabiCjEfficiency
                     day.AddNonMixedInputAmount(inputTxi.Transaction.Outputs[input.N].Value);
                 }
 
+                decimal coinJoinHashesPer100 = coinJoinHashes.Length / 100m;
                 processedCoinJoinCount++;
-                PercentageDone = processedCoinJoinCount / coinJoinHashes.Length;
+                PercentageDone = processedCoinJoinCount / coinJoinHashesPer100;
                 bool displayProgress = (PercentageDone - PreviousPercentageDone) >= 1;
                 if (displayProgress)
                 {
