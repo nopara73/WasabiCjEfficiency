@@ -21,12 +21,16 @@ namespace WasabiCjEfficiency
             coinJoinHashes = File.ReadAllLines("CoinJoinsMain.txt").Select(x => new uint256(x)).ToArray();
         }
 
+        private decimal PercentageDone { get; set; } = 0;
+        private decimal PreviousPercentageDone { get; set; } = -1;
+
         public async Task<IEnumerable<CoinJoinDay>> GetDailyStatsAsync()
         {
             Console.WriteLine($"{coinJoinHashes.Length} coinjoins will be analyzed.");
 
             var days = new List<CoinJoinDay>();
 
+            int processedCoinJoinCount = 0;
             foreach (var cjHash in coinJoinHashes)
             {
                 var txi = await Client.GetRawTransactionInfoWithCacheAsync(cjHash);
@@ -49,6 +53,15 @@ namespace WasabiCjEfficiency
 
                     var inputTxi = await Client.GetRawTransactionInfoWithCacheAsync(inputHash);
                     day.AddNonMixedInputAmount(inputTxi.Transaction.Outputs[input.N].Value);
+                }
+
+                processedCoinJoinCount++;
+                PercentageDone = processedCoinJoinCount / coinJoinHashes.Length;
+                bool displayProgress = (PercentageDone - PreviousPercentageDone) >= 1;
+                if (displayProgress)
+                {
+                    Console.WriteLine($"Progress: {(int)PercentageDone}%");
+                    PreviousPercentageDone = PercentageDone;
                 }
             }
 
