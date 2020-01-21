@@ -8,3 +8,5 @@ This repository is looking for answers on 2 questions:
 Question (1) provides a comparable metric to traditional centralized mixer volumes.
 
 Question (2) aims to create a business case for better mixing algorithm, as the change outputs those aren't get re-enqueued to another mix are proof of impatient users and lost mixing opportunity.
+
+[RESULTS](https://github.com/nopara73/WasabiCjEfficiency/blob/master/DailyStats.txt)
