@@ -5,7 +5,7 @@ This repository is looking for answers on 2 questions:
 1. How much non-mixed bitcoins are entering Wasabi mixes?
 2. How much non-mixed bitcoins are leaving Wasabi mixes?
 
-Question (1) provides a comparable metric to traditional centralized mixer volumes.
+Question (1) provides a comparable metric to traditional centralized mixer volumes and a more accurate measurement of wallet adoption.
 
 Question (2) aims to create a business case for better mixing algorithm, as the change outputs those aren't get re-enqueued to another mix are proof of impatient users and lost mixing opportunity.
 
@@ -37,6 +37,26 @@ Question (2) aims to create a business case for better mixing algorithm, as the 
 2020-1  Fresh bitcoins: 4263,   Nonremixed change: 461          Nonremixed <2 anons: 1199               Nonremixed <5 anons: 1489               Nonremixed <10 anons: 1646
 ```
 
-## Graphs
+## Understanding The Results
 
+### Fresh Bitcoins
 
+![](https://i.imgur.com/zAyYwPE.png)
+
+Fresh bitcoins coming into Wasabi every month. This is the most accurate measure of the adoption of the wallet I can think of.
+
+### Non-remixed change
+
+![](https://i.imgur.com/rbafxDx.png)
+
+A user who mixes does not always gets back mixed coins. However these unmixed changes should be enqueued into another mix in order to be mixed. The graph illustrates how many unmixed bitcoins aren't enqueued to another mixed. It also shows non-remixed coins those only achieved 2, 5, and 10 anonymity sets. This is a lost opportunity for Wasabi. It is a proof of inefficient mixing algorithm.
+
+### Wasabi Inefficiency
+
+![](https://i.imgur.com/MOsBEBT.png)
+
+This is a derived metric from fresh bitcoins coming into Wasabi and non-remixed changes leaving Wasabi. It shows the inefficientcy of Wasabi percentage.
+
+For example in December: 9% of coins those participated in Wasabi mixes have never been mixed, 20% of the coins were only been mixed with 2 or less anonymity set, 27% of the coins were only been mixed with 5 or less anonymity set, 31% of the coins were only been mixed with 2 or less anonymity set.
+
+Also note that, since remixing is impossible to detect, the larger the threashold grows, the more inaccurate these reults are. While I would be interested in how many of Wasabi coins were mixed with 50 anonset at least, I belive calculating it with my current algorithm would yield inaccurate results.
