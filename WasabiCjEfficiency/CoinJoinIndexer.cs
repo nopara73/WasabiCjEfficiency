@@ -29,41 +29,49 @@ namespace WasabiCjEfficiency
             Console.WriteLine($"{coinJoinHashes.Length} coinjoins will be analyzed.");
 
             var days = new List<CoinJoinDay>();
-
             int processedCoinJoinCount = 0;
-            foreach (var cjHash in coinJoinHashes)
+            foreach (var batch in coinJoinHashes.Batch(8))
             {
-                var txi = await Client.GetRawTransactionInfoWithCacheAsync(cjHash);
-                if (txi.Confirmations == 0) continue;
-                if (!txi.BlockTime.HasValue) continue; // Idk, shouldn't happen.
-
-                var blockTime = txi.BlockTime.Value;
-                var blockTimeDay = new DateTimeOffset(blockTime.Year, blockTime.Month, blockTime.Day, 0, 0, 0, TimeSpan.Zero);
-                var day = days.FirstOrDefault(x => x.BlockTimeDay == blockTimeDay);
-                if (day is null)
+                var txqueries = new List<Task<RawTransactionInfo>>();
+                foreach (var cjHash in batch)
                 {
-                    day = new CoinJoinDay(blockTimeDay);
-                    days.Add(day);
+                    txqueries.Add(Client.GetRawTransactionInfoWithCacheAsync(cjHash));
                 }
 
-                foreach (var input in txi.Transaction.Inputs.Select(x => x.PrevOut))
+                foreach (var query in txqueries)
                 {
-                    var inputHash = input.Hash;
-                    if (IsCoinJoin(inputHash)) continue;
+                    var txi = await query;
+                    if (txi.Confirmations == 0) continue;
+                    if (!txi.BlockTime.HasValue) continue; // Idk, shouldn't happen.
 
-                    var inputTxi = await Client.GetRawTransactionInfoWithCacheAsync(inputHash);
+                    var blockTime = txi.BlockTime.Value;
+                    var blockTimeDay = new DateTimeOffset(blockTime.Year, blockTime.Month, blockTime.Day, 0, 0, 0, TimeSpan.Zero);
+                    var day = days.FirstOrDefault(x => x.BlockTimeDay == blockTimeDay);
+                    if (day is null)
+                    {
+                        day = new CoinJoinDay(blockTimeDay);
+                        days.Add(day);
+                    }
 
-                    day.AddNonMixedInputAmount(inputTxi.Transaction.Outputs[input.N].Value);
-                }
+                    foreach (var input in txi.Transaction.Inputs.Select(x => x.PrevOut))
+                    {
+                        var inputHash = input.Hash;
+                        if (IsCoinJoin(inputHash)) continue;
 
-                decimal coinJoinHashesPer100 = coinJoinHashes.Length / 100m;
-                processedCoinJoinCount++;
-                PercentageDone = processedCoinJoinCount / coinJoinHashesPer100;
-                bool displayProgress = (PercentageDone - PreviousPercentageDone) >= 1;
-                if (displayProgress)
-                {
-                    Console.WriteLine($"Progress: {(int)PercentageDone}%");
-                    PreviousPercentageDone = PercentageDone;
+                        var inputTxi = await Client.GetRawTransactionInfoWithCacheAsync(inputHash);
+
+                        day.AddNonMixedInputAmount(inputTxi.Transaction.Outputs[input.N].Value);
+                    }
+
+                    decimal coinJoinHashesPer100 = coinJoinHashes.Length / 100m;
+                    processedCoinJoinCount++;
+                    PercentageDone = processedCoinJoinCount / coinJoinHashesPer100;
+                    bool displayProgress = (PercentageDone - PreviousPercentageDone) >= 1;
+                    if (displayProgress)
+                    {
+                        Console.WriteLine($"Progress: {(int)PercentageDone}%");
+                        PreviousPercentageDone = PercentageDone;
+                    }
                 }
             }
 
