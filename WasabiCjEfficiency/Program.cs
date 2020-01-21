@@ -30,9 +30,9 @@ namespace WasabiCjEfficiency
                 var cjIndexer = new CoinJoinIndexer(client);
                 var days = await cjIndexer.GetDailyStatsAsync();
 
-                foreach (var day in days)
+                foreach (var month in days.GroupBy(x => new DateTimeOffset(x.BlockTimeDay.Year, x.BlockTimeDay.Month, 1, 0, 0, 0, TimeSpan.Zero)).OrderBy(x => x.Key))
                 {
-                    Console.WriteLine(day);
+                    Console.WriteLine($"{month.Key.Year}-{month.Key.Month}\tFresh bitcoins: {(int)Money.Satoshis(month.Sum(x => x.NonMixedInputSum)).ToDecimal(MoneyUnit.BTC)},\tNonremixed change: {(int)Money.Satoshis(month.Sum(x => x.NonRemixedChangeSum)).ToDecimal(MoneyUnit.BTC)}\t\tNonremixed <2 anons: {(int)Money.Satoshis(month.Sum(x => x.NonRemixed2AnonSum)).ToDecimal(MoneyUnit.BTC)}\t\tNonremixed <5 anons: {(int)Money.Satoshis(month.Sum(x => x.NonRemixed5AnonSum)).ToDecimal(MoneyUnit.BTC)}\t\tNonremixed <10 anons: {(int)Money.Satoshis(month.Sum(x => x.NonRemixed10AnonSum)).ToDecimal(MoneyUnit.BTC)}");
                 }
 
                 await File.WriteAllLinesAsync("DailyStats.txt", days.Select(x => x.ToString()));

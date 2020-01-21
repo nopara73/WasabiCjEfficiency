@@ -30,6 +30,7 @@ namespace WasabiCjEfficiency
 
             var days = new List<CoinJoinDay>();
             int processedCoinJoinCount = 0;
+            var allInputs = new HashSet<OutPoint>();
             foreach (var batch in coinJoinHashes.Batch(8))
             {
                 var txqueries = new List<Task<RawTransactionInfo>>();
@@ -55,6 +56,7 @@ namespace WasabiCjEfficiency
 
                     foreach (var input in txi.Transaction.Inputs.Select(x => x.PrevOut))
                     {
+                        allInputs.Add(input);
                         var inputHash = input.Hash;
                         if (IsCoinJoin(inputHash)) continue;
 
@@ -71,6 +73,52 @@ namespace WasabiCjEfficiency
                     {
                         Console.WriteLine($"Progress: {(int)PercentageDone}%");
                         PreviousPercentageDone = PercentageDone;
+                    }
+                }
+            }
+
+            foreach (var cjHash in coinJoinHashes)
+            {
+                // It should be always getting the tx out of memory cache, so shouldn't be a performance issue.
+                var txi = await Client.GetRawTransactionInfoWithCacheAsync(cjHash);
+                if (txi.Confirmations == 0) continue;
+                if (!txi.BlockTime.HasValue) continue; // Idk, shouldn't happen.
+
+                var blockTime = txi.BlockTime.Value;
+                var blockTimeDay = new DateTimeOffset(blockTime.Year, blockTime.Month, blockTime.Day, 0, 0, 0, TimeSpan.Zero);
+                var day = days.First(x => x.BlockTimeDay == blockTimeDay);
+
+                var mixedValues = txi.Transaction.GetIndistinguishableOutputs(includeSingle: false).Select(x => x.value);
+                var mixedValues2AnonTreshold = txi.Transaction.GetIndistinguishableOutputs(includeSingle: false).Where(x => x.count > 2).Select(x => x.value);
+                var mixedValues5AnonTreshold = txi.Transaction.GetIndistinguishableOutputs(includeSingle: false).Where(x => x.count > 5).Select(x => x.value);
+                var mixedValues10AnonTreshold = txi.Transaction.GetIndistinguishableOutputs(includeSingle: false).Where(x => x.count > 10).Select(x => x.value);
+
+                TxOutList outputs = txi.Transaction.Outputs;
+                for (int i = 0; i < outputs.Count; i++)
+                {
+                    var output = outputs[i];
+                    if (mixedValues10AnonTreshold.Contains(output.Value)) continue; // This is mixed.
+
+                    var outPoint = new OutPoint(cjHash, i);
+
+                    if (allInputs.Contains(outPoint)) continue;
+
+                    var txoutResponse = await Client.GetTxOutAsync(cjHash, i, includeMempool: false);
+                    if (txoutResponse is { }) continue; // In this case the tx is unspent so we don't know what will happen with it.
+
+                    day.AddRemixed10AnonAmount(output.Value);
+                    if (!mixedValues5AnonTreshold.Contains(output.Value))
+                    {
+                        day.AddRemixed5AnonAmount(output.Value);
+                        if (!mixedValues2AnonTreshold.Contains(output.Value))
+                        {
+                            day.AddRemixed2AnonAmount(output.Value);
+                            if (!mixedValues.Contains(output.Value))
+                            {
+                                day.AddRemixedChangeAmount(output.Value);
+
+                            }
+                        }
                     }
                 }
             }
