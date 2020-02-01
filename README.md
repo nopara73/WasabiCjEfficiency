@@ -25,16 +25,16 @@ Question (2) aims to create a business case for better mixing algorithm, as the 
 2019-1  Fresh bitcoins: 2969,   Nonremixed change: 428          Nonremixed <2 anons: 478                Nonremixed <5 anons: 563                Nonremixed <10 anons: 672
 2019-2  Fresh bitcoins: 2235,   Nonremixed change: 313          Nonremixed <2 anons: 381                Nonremixed <5 anons: 510                Nonremixed <10 anons: 609
 2019-3  Fresh bitcoins: 3553,   Nonremixed change: 221          Nonremixed <2 anons: 378                Nonremixed <5 anons: 526                Nonremixed <10 anons: 611
-2019-4  Fresh bitcoins: 3435,   Nonremixed change: 486          Nonremixed <2 anons: 557                Nonremixed <5 anons: 658                Nonremixed <10 anons: 777
-2019-5  Fresh bitcoins: 2988,   Nonremixed change: 278          Nonremixed <2 anons: 313                Nonremixed <5 anons: 411                Nonremixed <10 anons: 542
+2019-4  Fresh bitcoins: 3435,   Nonremixed change: 487          Nonremixed <2 anons: 558                Nonremixed <5 anons: 658                Nonremixed <10 anons: 778
+2019-5  Fresh bitcoins: 2988,   Nonremixed change: 278          Nonremixed <2 anons: 313                Nonremixed <5 anons: 412                Nonremixed <10 anons: 543
 2019-6  Fresh bitcoins: 5288,   Nonremixed change: 513          Nonremixed <2 anons: 661                Nonremixed <5 anons: 951                Nonremixed <10 anons: 1165
-2019-7  Fresh bitcoins: 3754,   Nonremixed change: 255          Nonremixed <2 anons: 282                Nonremixed <5 anons: 346                Nonremixed <10 anons: 436
+2019-7  Fresh bitcoins: 3754,   Nonremixed change: 255          Nonremixed <2 anons: 282                Nonremixed <5 anons: 347                Nonremixed <10 anons: 436
 2019-8  Fresh bitcoins: 20328,  Nonremixed change: 1481         Nonremixed <2 anons: 2276               Nonremixed <5 anons: 4251               Nonremixed <10 anons: 10191
-2019-9  Fresh bitcoins: 13456,  Nonremixed change: 506          Nonremixed <2 anons: 857                Nonremixed <5 anons: 2100               Nonremixed <10 anons: 4624
-2019-10 Fresh bitcoins: 4802,   Nonremixed change: 204          Nonremixed <2 anons: 241                Nonremixed <5 anons: 328                Nonremixed <10 anons: 482
-2019-11 Fresh bitcoins: 4295,   Nonremixed change: 370          Nonremixed <2 anons: 423                Nonremixed <5 anons: 524                Nonremixed <10 anons: 617
-2019-12 Fresh bitcoins: 5617,   Nonremixed change: 501          Nonremixed <2 anons: 1148               Nonremixed <5 anons: 1533               Nonremixed <10 anons: 1775
-2020-1  Fresh bitcoins: 4263,   Nonremixed change: 461          Nonremixed <2 anons: 1199               Nonremixed <5 anons: 1489               Nonremixed <10 anons: 1646
+2019-9  Fresh bitcoins: 13456,  Nonremixed change: 506          Nonremixed <2 anons: 857                Nonremixed <5 anons: 2109               Nonremixed <10 anons: 4632
+2019-10 Fresh bitcoins: 4802,   Nonremixed change: 215          Nonremixed <2 anons: 252                Nonremixed <5 anons: 340                Nonremixed <10 anons: 495
+2019-11 Fresh bitcoins: 4295,   Nonremixed change: 371          Nonremixed <2 anons: 424                Nonremixed <5 anons: 524                Nonremixed <10 anons: 618
+2019-12 Fresh bitcoins: 5617,   Nonremixed change: 503          Nonremixed <2 anons: 1150               Nonremixed <5 anons: 1536               Nonremixed <10 anons: 1779
+2020-1  Fresh bitcoins: 8125,   Nonremixed change: 951          Nonremixed <2 anons: 2461               Nonremixed <5 anons: 3148               Nonremixed <10 anons: 3459
 ```
 
 ## Understanding The Results
