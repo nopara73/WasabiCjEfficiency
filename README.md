@@ -41,19 +41,19 @@ Question (2) aims to create a business case for better mixing algorithm, as the 
 
 ### Fresh Bitcoins
 
-![](https://i.imgur.com/zAyYwPE.png)
+![](https://i.imgur.com/29yjYYi.png)
 
 Fresh bitcoins coming into Wasabi every month. This is the most accurate measure of the adoption of the wallet I can think of.
 
 ### Non-remixed change
 
-![](https://i.imgur.com/rbafxDx.png)
+![](https://i.imgur.com/dNFOkY6.png)
 
 A user who mixes does not always gets back mixed coins. However these unmixed changes should be enqueued into another mix in order to be mixed. The graph illustrates how many unmixed bitcoins aren't enqueued to another mixed. It also shows non-remixed coins those only achieved 2, 5, and 10 anonymity sets. This is a lost opportunity for Wasabi. It is a proof of inefficient mixing algorithm.
 
 ### Wasabi Inefficiency
 
-![](https://i.imgur.com/MOsBEBT.png)
+![](https://i.imgur.com/CJWCAvU.png)
 
 This is a derived metric from fresh bitcoins coming into Wasabi and non-remixed changes leaving Wasabi. It shows the inefficientcy of Wasabi percentage.
 
