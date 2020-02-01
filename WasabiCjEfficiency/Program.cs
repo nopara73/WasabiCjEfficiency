@@ -23,8 +23,6 @@ namespace WasabiCjEfficiency
             };
             var client = new RPCClient(rpcConf, Network.Main);
 
-            File.ReadAllLines("CoinJoinsMain.txt");
-
             using (BenchmarkLogger.Measure(operationName: "Parsing The Blockchain"))
             {
                 var cjIndexer = new CoinJoinIndexer(client);
