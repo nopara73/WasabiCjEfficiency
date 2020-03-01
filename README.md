@@ -33,8 +33,9 @@ Question (2) aims to create a business case for better mixing algorithm, as the 
 2019-9  Fresh bitcoins: 13456,  Nonremixed change: 506          Nonremixed <2 anons: 857                Nonremixed <5 anons: 2109               Nonremixed <10 anons: 4632
 2019-10 Fresh bitcoins: 4802,   Nonremixed change: 215          Nonremixed <2 anons: 252                Nonremixed <5 anons: 340                Nonremixed <10 anons: 495
 2019-11 Fresh bitcoins: 4295,   Nonremixed change: 371          Nonremixed <2 anons: 424                Nonremixed <5 anons: 524                Nonremixed <10 anons: 618
-2019-12 Fresh bitcoins: 5617,   Nonremixed change: 503          Nonremixed <2 anons: 1150               Nonremixed <5 anons: 1536               Nonremixed <10 anons: 1779
-2020-1  Fresh bitcoins: 8125,   Nonremixed change: 951          Nonremixed <2 anons: 2461               Nonremixed <5 anons: 3148               Nonremixed <10 anons: 3459
+2019-12 Fresh bitcoins: 5617,   Nonremixed change: 504          Nonremixed <2 anons: 1152               Nonremixed <5 anons: 1537               Nonremixed <10 anons: 1781
+2020-1  Fresh bitcoins: 8125,   Nonremixed change: 963          Nonremixed <2 anons: 2478               Nonremixed <5 anons: 3169               Nonremixed <10 anons: 3487
+2020-2  Fresh bitcoins: 7644,   Nonremixed change: 1389         Nonremixed <2 anons: 2354               Nonremixed <5 anons: 2959               Nonremixed <10 anons: 3221
 ```
 
 ## Understanding The Results
