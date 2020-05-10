@@ -52,7 +52,7 @@ Fresh bitcoins coming into Wasabi every month. This is the most accurate measure
 
 ![](https://i.imgur.com/Z2DXgAT.png)
 
-A user who mixes does not always get back mixed coins. However these unmixed changes should be enqueued into another mix in order to be mixed. The graph illustrates how many unmixed bitcoins aren't enqueued to another mixed. It also shows non-remixed coins those only achieved 2, 5, and 10 anonymity sets. This is a lost opportunity for Wasabi. It is a proof of inefficient mixing algorithm.
+A user who mixes does not always get back mixed coins. However these unmixed changes should be enqueued into another mix in order to be mixed. The graph illustrates how many unmixed bitcoins aren't enqueued to another mix. It also shows non-remixed coins - those only achieved 2, 5, and 10 anonymity sets. This is a lost opportunity for Wasabi. It is a proof of inefficient mixing algorithm.
 
 ### Wasabi Inefficiency
 
